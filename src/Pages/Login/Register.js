@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import reg from '../../images/camera.jpg'
 const Register = () => {
-   
+    
     const {signUp,updateUserProfile} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
