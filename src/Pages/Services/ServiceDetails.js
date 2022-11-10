@@ -1,6 +1,7 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Review from '../Review/Review';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
@@ -29,6 +30,11 @@ const ServiceDetails = () => {
        Duration: {duration}
       </p>
   </Card>
+</div>
+<div>
+<Review key={_id}
+serviceDetails={serviceDetails}
+></Review>
 </div>
         </div>
     );
