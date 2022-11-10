@@ -1,9 +1,11 @@
 import { Card } from 'flowbite-react';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Review = ({serviceDetails}) => {
     const [reviews,setReviews] = useState([]);
+    const {user} = useContext(AuthContext);
     useEffect(()=>{
         fetch(`http://localhost:5000/reviews`)
         .then(res=>res.json())
@@ -56,6 +58,11 @@ const Review = ({serviceDetails}) => {
                     
                 }
             </div>
+            <div>
+            {user?.uid?'ase':'nai'}
+            
+            </div>
+
         </div>
     );
 };

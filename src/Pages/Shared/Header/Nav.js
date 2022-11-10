@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../images/logo.png'
 import { Navbar,Dropdown,Avatar, Button } from 'flowbite-react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
 const Nav = () => {
+  const {user,logOut} = useContext(AuthContext);
+  //logout
+  const handleLogOut = () => {
+    logOut()
+        .then(() => { })
+        .catch(error => console.error(error))
+}
     return (
        <div className='max-w-screen-xl mx-auto'>
          <Navbar
@@ -46,10 +54,24 @@ const Nav = () => {
           <Navbar.Link href="/navbars"  className='md:mr-10'>
          <Link to='/blog'>Blog</Link>
           </Navbar.Link>
-          
-          <Button className='md:mr-10 '>
+      {
+        user?.uid?
+        <>
+         <Navbar.Link href="/navbars"  className='md:mr-10'>
+         <Link to='/'>My Reviews</Link>
+          </Navbar.Link>
+         <Navbar.Link href="/navbars"  className='md:mr-10'>
+         <Link to='/'>Add Service</Link>
+          </Navbar.Link>
+          <Button className='md:mr-10' onClick={handleLogOut}>
+     Logout
+    </Button>
+      </>:
+<Button className='md:mr-10 '>
       <Link to='/login'>Login</Link>
     </Button>
+      }
+          
         
           
           
