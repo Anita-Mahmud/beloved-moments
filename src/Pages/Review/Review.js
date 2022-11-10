@@ -7,7 +7,7 @@ const Review = ({serviceDetails}) => {
         fetch(`http://localhost:5000/reviews`)
         .then(res=>res.json())
         .then(data=>{
-            const rev = data.filter(review=>review.service_name===serviceDetails.name);
+            const rev = data.filter(review=>review.service_id===serviceDetails.service_id);
             setReviews(rev);
         })
     },[serviceDetails]);
