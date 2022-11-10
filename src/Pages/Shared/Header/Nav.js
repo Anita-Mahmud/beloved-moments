@@ -1,19 +1,23 @@
 import React from 'react';
 import logo from '../../../images/logo.png'
-import { Navbar,Dropdown,Avatar } from 'flowbite-react';
+import { Navbar,Dropdown,Avatar, Button } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 const Nav = () => {
     return (
-       <div className=''>
+       <div className='relative max-w-screen-xl mx-auto'>
          <Navbar
         fluid={true}
         rounded={true}
       >
-        <Navbar.Brand href="https://flowbite.com/">
+        <Navbar.Brand>
+          <Link to='/'>
           <img
             src={logo}
             className="mr-3 h-44"
             alt="Logo"
           />
+          </Link>
+          
          
         </Navbar.Brand>
         <div className="flex md:order-2">
@@ -25,33 +29,33 @@ const Nav = () => {
           </Dropdown>
           <Navbar.Toggle />
         </div>
-       
         <Navbar.Collapse>
-        <div className='ml-96 md:flex'>
+        <div className='md:ml-96 md:flex items-center'>
           <Navbar.Link
-            href="/navbars"
             active={true}
             className='md:text-lg md:mr-10'
           >
-            Home
+          <Link to='/'>Home</Link>
           </Navbar.Link>
           <Navbar.Link 
           href="/navbars"
           className='md:text-lg md:mr-10'
           >
-            About
+           <Link to='/services'>Services</Link>
           </Navbar.Link>
           <Navbar.Link href="/navbars"  className='md:text-lg md:mr-10'>
-            Services
+         <Link to='/blog'>Blog</Link>
           </Navbar.Link>
-          <Navbar.Link href="/navbars"  className='md:text-lg md:mr-10'>
-            Pricing
-          </Navbar.Link>
-          <Navbar.Link href="/navbars"  className='md:text-lg md:mr-10'>
-            Contact
-          </Navbar.Link>
+          
+          <Button className='md:text-lg md:mr-10 '>
+      <Link to='/login'>Login</Link>
+    </Button>
+        
+          
+          
           </div>
         </Navbar.Collapse>
+       
        
       </Navbar>
       </div>
