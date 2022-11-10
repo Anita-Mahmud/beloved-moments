@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import reg from '../../images/camera.jpg'
 const Register = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 '>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register</title>
+            </Helmet>
         <div >
          <img src={reg} alt="" className='w-full'/>
         </div>

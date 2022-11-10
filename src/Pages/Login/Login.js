@@ -1,8 +1,14 @@
 import React from 'react';
+import {Helmet} from "react-helmet";
 import { Link } from 'react-router-dom';
 import photo from '../../images/photo.png'
 const Login = () => {
     return (
+        <div>
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>Login</title>
+            </Helmet>
         <div className='grid grid-cols-1 md:grid-cols-2'>
             <div >
              <img src={photo} alt="" />
@@ -47,6 +53,7 @@ const Login = () => {
 		<Link to='/register' className="underline dark:text-gray-100">Sign up</Link>
 	</p>
 </div>
+        </div>
         </div>
     );
 };

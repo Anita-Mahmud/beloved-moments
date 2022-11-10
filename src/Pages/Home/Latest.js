@@ -6,7 +6,7 @@ import image3 from '../../images/slider/image3.jpg';
 import image4 from '../../images/bridal-shower-photography-tips-prep.jpg';
 import image5 from '../../images/Indian-Wedding-Heena-0003-1024x683.jpg';
 import image6 from '../../images/WEDDING-PHOTO_18.jpg';
-import image7 from '../../images/weddingplanner-imaagin-event-planners-weddingdecor-7_15_386326-164984939182383.jpeg';
+import image7 from '../../images/weddingplanner-imaagin-event-planners.jpeg';
 const Latest = () => {
     return (
         <div className='max-w-screen-xl mx-8'>

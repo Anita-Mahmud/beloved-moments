@@ -1,5 +1,6 @@
 import { Card } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const Review = ({serviceDetails}) => {
     const [reviews,setReviews] = useState([]);
@@ -14,6 +15,7 @@ const Review = ({serviceDetails}) => {
     console.log(reviews);
     return (
         <div>
+         
             <div className='my-10 mx-8'>
                 <h2 className='text-5xl font-great font-semibold text-center'>Reviwes of -{serviceDetails.name} </h2>
             </div>

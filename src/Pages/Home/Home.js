@@ -1,5 +1,6 @@
 import { Button } from 'flowbite-react';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 import SingleService from '../Services/SingleService';
 import About from './About';
@@ -10,6 +11,10 @@ const Home = () => {
     const homeService = useLoaderData();
     return (
         <div className='max-w-screen-xl mx-auto'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Beloved Moments</title>
+            </Helmet>
             <Slider></Slider>
             <div className='my-10 mx-8'>
                 <h2 className='text-5xl font-great font-semibold'>Services</h2>

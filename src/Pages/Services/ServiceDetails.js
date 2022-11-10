@@ -1,5 +1,6 @@
 import { Card } from 'flowbite-react';
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
 import Review from '../Review/Review';
 
@@ -8,6 +9,10 @@ const ServiceDetails = () => {
     const {_id,name,image,price,description,rating,duration} = serviceDetails;
     return (
         <div className='grid grid-cols-1'>
+          <Helmet>
+                <meta charSet="utf-8" />
+                <title>{name}</title>
+            </Helmet>
            <div className='my-10 mx-8'>
                 <h2 className='text-5xl font-great font-semibold text-center'>Details of - {name}</h2>
             </div>
