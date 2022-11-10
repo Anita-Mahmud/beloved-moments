@@ -10,7 +10,7 @@ const Main = () => {
         <div className=''>
             <Nav></Nav>
             <Outlet></Outlet>
-            {/* <PageFooter></PageFooter> */}
+            <PageFooter></PageFooter>
         </div>
     );
 };

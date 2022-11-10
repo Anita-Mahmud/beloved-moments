@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SingleService from '../Services/SingleService';
 import About from './About';
+import Latest from './Latest';
 import Slider from './Slider';
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
             }
             </div>
             <About></About>
-           
+           <Latest></Latest>
         </div>
     );
 };

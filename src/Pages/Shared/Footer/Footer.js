@@ -4,8 +4,8 @@ import logo from '../../../images/logo.png'
 import { Link } from 'react-router-dom';
 const PageFooter = () => {
     return (
-        <Footer container={true} className=" bg-slate-600 px-20">
-  <div className="w-full bg-slate-600 mx-auto ">
+        <Footer container={true} className="bg-slate-800">
+  <div className="w-full bg-slate-800 mx-auto  ">
     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
       <div  >
         {/* <Footer.Brand
@@ -61,7 +61,7 @@ const PageFooter = () => {
       </div>
     </div>
     <Footer.Divider />
-    <div className="w-full flex items-center justify-between">
+    <div className="w-full flex items-center justify-between text-white">
       <Footer.Copyright
       className='text-white'
         href="#"
