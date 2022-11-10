@@ -7,7 +7,7 @@ import image3 from '../../images/slider/image3.jpg';
 
 const Slider = () => {
     return (
-        <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+        <div className="h-56 sm:h-64 lg:h-80 2xl:h-96 mx-10">
   <Carousel slideInterval={5000}>
     
     <img
