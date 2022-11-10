@@ -1,5 +1,6 @@
+import { Button } from 'flowbite-react';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import SingleService from '../Services/SingleService';
 import About from './About';
 import Latest from './Latest';
@@ -21,6 +22,11 @@ const Home = () => {
                 ></SingleService>)
             }
             </div>
+            <div className='m-10'>
+    <Button gradientMonochrome="info" className='mx-auto px-20'>
+     <Link to='/services'> See All</Link>
+    </Button>
+  </div>
             <About></About>
            <Latest></Latest>
         </div>
