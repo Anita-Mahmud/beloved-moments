@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import reg from '../../images/camera.jpg'
 const Register = () => {
+    
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 '>
             <Helmet>
@@ -21,7 +22,7 @@ const Register = () => {
     </div>
     <div className="space-y-1 text-sm">
         <label for="photoURL" className="block dark:text-gray-400">Photo URL</label>
-        <input type="text" name="photoURL" id="photoURL" placeholder="Full Name" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+        <input type="text" name="photoURL" id="photoURL" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
     </div>
     <div className="space-y-1 text-sm">
         <label for="email" className="block dark:text-gray-400">Email</label>
