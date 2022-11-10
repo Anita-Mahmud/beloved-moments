@@ -4,7 +4,7 @@ import { Navbar,Dropdown,Avatar, Button } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 const Nav = () => {
     return (
-       <div className='relative max-w-screen-xl mx-auto'>
+       <div className=' max-w-screen-xl mx-auto'>
          <Navbar
         fluid={true}
         rounded={true}

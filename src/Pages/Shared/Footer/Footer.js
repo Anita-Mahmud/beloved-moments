@@ -4,7 +4,7 @@ import logo from '../../../images/logo.png'
 import { Link } from 'react-router-dom';
 const PageFooter = () => {
     return (
-        <Footer container={true} className=" bg-slate-600 absolute bottom-0 px-20">
+        <Footer container={true} className=" bg-slate-600 px-20">
   <div className="w-full bg-slate-600 mx-auto ">
     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
       <div  >
