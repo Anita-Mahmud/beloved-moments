@@ -1,3 +1,4 @@
+import { Spinner } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
@@ -7,8 +8,13 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return  <div><p>Loading...</p></div>
-    }
+        return <div className='text-center'>
+         <Spinner
+        aria-label="Large spinner example"
+        size="lg"
+      />
+        </div>
+     }
 if(!user){
         return <Navigate to="/login" state={{from: location}} replace></Navigate>
     }

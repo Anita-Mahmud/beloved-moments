@@ -28,40 +28,41 @@ const Nav = () => {
           
          
         </Navbar.Brand>
-        <div className="flex md:order-2">
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true}/>}
-          >
-          </Dropdown>
-          <Navbar.Toggle />
-        </div>
+        
         <Navbar.Collapse>
         <div className='md:flex items-center md:ml-96'>
           <Navbar.Link
-            active={true}
+            //active={true}
             className='md:mr-10'
           >
           <Link to='/'>Home</Link>
           </Navbar.Link>
           <Navbar.Link 
-          href="/navbars"
+         
           className='md:mr-10'
           >
            <Link to='/services'>Services</Link>
           </Navbar.Link>
-          <Navbar.Link href="/navbars"  className='md:mr-10'>
+          <Navbar.Link   className='md:mr-10'>
          <Link to='/blog'>Blog</Link>
           </Navbar.Link>
       {
         user?.uid?
         <>
-         <Navbar.Link href="/navbars"  className='md:mr-10'>
-         <Link to='/'>My Reviews</Link>
+        <div className="flex md:order-2">
+        { user?.uid && <Dropdown
+            arrowIcon={false}
+            inline={true}
+            label={<Avatar alt="User settings" img={user?.photoURL} rounded={true}/>}
+          >
+          </Dropdown>}
+          <Navbar.Toggle />
+        </div>
+         <Navbar.Link   className='md:mr-10'>
+         <Link to='/review'>My Reviews</Link>
           </Navbar.Link>
-         <Navbar.Link href="/navbars"  className='md:mr-10'>
-         <Link to='/'>Add Service</Link>
+         <Navbar.Link   className='md:mr-10'>
+         <Link to='add/service'>Add Service</Link>
           </Navbar.Link>
           <Button className='md:mr-10' onClick={handleLogOut}>
      Logout

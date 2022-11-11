@@ -1,10 +1,21 @@
-import React from 'react';
+import { Spinner } from 'flowbite-react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 import SingleService from './SingleService';
 
 const Services = () => {
     const services = useLoaderData();
+    const {loading}=useContext(AuthContext);
+    if(loading){
+       return <div className='text-center'>
+        <Spinner 
+       aria-label="Large spinner example"
+       size="lg"
+     />
+       </div>
+    }
     return (
         <div>
             <Helmet>

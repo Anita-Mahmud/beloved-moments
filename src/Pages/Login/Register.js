@@ -1,3 +1,4 @@
+import { Spinner } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -5,10 +6,19 @@ import { AuthContext } from '../../context/AuthProvider';
 import reg from '../../images/camera.jpg'
 const Register = () => {
     
-    const {signUp,updateUserProfile} = useContext(AuthContext);
+    const {signUp,updateUserProfile,loading} = useContext(AuthContext);
+    
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    if(loading){
+        return <div className='text-center'>
+         <Spinner
+        aria-label="Large spinner example"
+        size="lg"
+      />
+        </div>
+     }
     //signUp
     const handleSignUp = event =>{
         event.preventDefault();

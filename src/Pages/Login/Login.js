@@ -1,4 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
+import { Spinner } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import {Helmet} from "react-helmet";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -9,7 +10,15 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 	const [error,setError] = useState(false);
-	const {googleAuthProvider,logIn} = useContext(AuthContext);
+	const {googleAuthProvider,logIn,loading} = useContext(AuthContext);
+	if(loading){
+		return <div className='text-center'>
+		 <Spinner
+		aria-label="Large spinner example"
+		size="lg"
+	  />
+		</div>
+	 }
 	const googleProvider = new GoogleAuthProvider();
 	//google
 	const handleGoogleSignIn=()=>{

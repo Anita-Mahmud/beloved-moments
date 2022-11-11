@@ -7,22 +7,23 @@ import { AuthContext } from '../../context/AuthProvider';
 const Review = ({serviceDetails}) => {
     
     const [reviews,setReviews] = useState([]);
-    const {user} = useContext(AuthContext);
+    const {user,loading,setLoading} = useContext(AuthContext);
     
     useEffect(()=>{
         fetch(`http://localhost:5000/reviews`)
         .then(res=>res.json())
         .then(data=>{
             const rev = data.filter(review=>review.service_id===serviceDetails.service_id);
+            //setLoading(true);
             setReviews(rev);
         })
-    },[serviceDetails]);
+    },[serviceDetails,loading]);
     console.log(reviews);
     const handleReview = event =>{
       event.preventDefault();
       const form = event.target;
       const service_id = serviceDetails.service_id;
-      const service_name = serviceDetails.service_name;
+      const service_name = serviceDetails.name;
       const name = user.displayName;
       const image = user.photoURL;
       const email = user.email;
@@ -48,7 +49,7 @@ const Review = ({serviceDetails}) => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('Order placed successfully')
+                  setLoading(true);
                     form.reset();
                     
                 }
@@ -61,7 +62,7 @@ const Review = ({serviceDetails}) => {
             <div className='my-10 mx-8'>
                 <h2 className='text-5xl font-great font-semibold text-center'>Reviwes of -{serviceDetails.name} </h2>
             </div>
-            <div className=''>
+            <div className='grid grid-cols-3 mx-10'>
                 {
                     reviews.map(revi=>
                     <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100 shadow-lg shadow-zinc-700">
