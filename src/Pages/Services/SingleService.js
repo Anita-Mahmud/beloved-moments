@@ -5,7 +5,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const SingleService = ({service}) => {
     const {_id,name,image,description,rating,price} = service;
     return (
-        <div className="max-w-screen-xl ">
+        <div className="max-w-screen-xl mb-8">
   <Card
     // imgAlt={name}
     // imgSrc={image} 
@@ -14,7 +14,7 @@ const SingleService = ({service}) => {
      
        
           <PhotoView key={_id} src={image}>
-            <img src={image} alt="" />
+            <img src={image} alt="" className='w-full h-80'/>
           </PhotoView>
       
     </PhotoProvider>
