@@ -6,8 +6,8 @@ import { AuthContext } from '../../context/AuthProvider';
 import photo from '../../images/photo.png'
 const Login = () => {
 	const navigate = useNavigate();
-	const location = useLocation();
-	const from = location.state?.from?.pathname || '/';
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 	const [error,setError] = useState(false);
 	const {googleAuthProvider,logIn} = useContext(AuthContext);
 	const googleProvider = new GoogleAuthProvider();
@@ -17,6 +17,7 @@ const Login = () => {
 		.then(result=>{
 			const user = result.user;
 			navigate(from, {replace: true});
+            
 		})
 		.catch(er=>setError(true));
 	}
@@ -30,7 +31,7 @@ const Login = () => {
 		.then(result=>{
 			const user = result.user;
 			navigate(from, {replace: true});
-			form.reset();
+            form.reset();
 			// if(!user){
 			// 	setError('Credentials do not matched')
 			// }
