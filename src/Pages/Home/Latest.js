@@ -13,7 +13,7 @@ const Latest = () => {
         <div className='mt-14 mb-6 ml-'>
              <h2 className='text-5xl font-great font-semibold'>Latest Work</h2>
          </div>
-         <div className="flex md:flex-row w-36 h-24 mb-2 ">
+         <div className="flex md:flex-row w-48 h-36 mb-2 ">
         <img src={image1} alt=""></img>
         <img src={image2} alt=""></img>
         <img src={image3} alt=""></img>

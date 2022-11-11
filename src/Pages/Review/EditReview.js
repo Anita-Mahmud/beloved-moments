@@ -10,7 +10,7 @@ const EditReview = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${id}`)
+    fetch(`https://photography-server-anita-mahmud.vercel.app/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => {
        setEdit(data);
@@ -24,10 +24,11 @@ const EditReview = () => {
       
     }
 
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://photography-server-anita-mahmud.vercel.app/reviews/${id}`, {
       method: "PATCH",
       headers: {
-        "content-type": "application/json"
+        "content-type": "application/json",
+       
       },
       body: JSON.stringify(review)
     }).then(res => res.json())

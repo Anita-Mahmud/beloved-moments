@@ -1,7 +1,7 @@
 import { Spinner } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import reg from '../../images/camera.jpg'
 const Register = () => {
@@ -9,8 +9,7 @@ const Register = () => {
     const {signUp,updateUserProfile,loading} = useContext(AuthContext);
     
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    
     if(loading){
         return <div className='text-center'>
          <Spinner
@@ -32,7 +31,7 @@ const Register = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            navigate(from, {replace: true});
+            navigate('/login');
             handleUserProfile(displayName,photoURL);
             form.reset();
            

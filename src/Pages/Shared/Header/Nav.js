@@ -21,14 +21,22 @@ const Nav = () => {
           <Link to='/'>
           <img
             src={logo}
-            className="mr-3 h-28"
+            className="mr-3 h-36"
             alt="Logo"
           />
           </Link>
           
          
         </Navbar.Brand>
-        
+        <div className="flex md:order-2">
+        { user?.uid && <Dropdown
+            arrowIcon={false}
+            inline={true}
+            label={<Avatar alt="User settings" img={user?.photoURL} rounded={true}/>}
+          >
+          </Dropdown>}
+          <Navbar.Toggle />
+        </div>
         <Navbar.Collapse>
         <div className='md:flex items-center md:ml-96'>
           <Navbar.Link
@@ -49,15 +57,7 @@ const Nav = () => {
       {
         user?.uid?
         <>
-        <div className="flex md:order-2">
-        { user?.uid && <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={<Avatar alt="User settings" img={user?.photoURL} rounded={true}/>}
-          >
-          </Dropdown>}
-          <Navbar.Toggle />
-        </div>
+       
          <Navbar.Link   className='md:mr-10'>
          <Link to='/review'>My Reviews</Link>
           </Navbar.Link>

@@ -5,16 +5,21 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Review = ({serviceDetails}) => {
-    
+    // console.log('service',serviceDetails);
     const [reviews,setReviews] = useState([]);
     const {user,loading,setLoading} = useContext(AuthContext);
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews`)
+      fetch('https://photography-server-anita-mahmud.vercel.app/reviews',{
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+      })
         .then(res=>res.json())
         .then(data=>{
+          // console.log('data',data);
             const rev = data.filter(review=>review.service_id===serviceDetails.service_id);
-            //setLoading(true);
+            // setLoading(true);
             setReviews(rev);
         })
     },[serviceDetails,loading]);
@@ -38,10 +43,13 @@ const Review = ({serviceDetails}) => {
         review,
         rating
       }
-      fetch('http://localhost:5000/reviews',{
+      fetch('https://photography-server-anita-mahmud.vercel.app/reviews',{
         method:'POST',
         headers:{
           'content-type': 'application/json',
+          
+           
+        
         },
         body: JSON.stringify(reviews)
       })
@@ -62,7 +70,7 @@ const Review = ({serviceDetails}) => {
             <div className='my-10 mx-8'>
                 <h2 className='text-5xl font-great font-semibold text-center'>Reviwes of -{serviceDetails.name} </h2>
             </div>
-            <div className='grid grid-cols-3 mx-10'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mx-10'>
                 {
                     reviews.map(revi=>
                     <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100 shadow-lg shadow-zinc-700">

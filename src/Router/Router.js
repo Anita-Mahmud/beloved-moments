@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
+import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
@@ -18,17 +19,17 @@ export const router = createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/services')
+                loader:()=>fetch('https://photography-server-anita-mahmud.vercel.app/services')
             },
             {
                 path:'/services',
                 element:<Services></Services>,
-                loader:()=>fetch('http://localhost:5000/all/services')
+                loader:()=>fetch('https://photography-server-anita-mahmud.vercel.app/all/services')
             },
             {
                 path:'/services/:id',
                 element:<ServiceDetails></ServiceDetails>,
-                loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({params})=> fetch(`https://photography-server-anita-mahmud.vercel.app/services/${params.id}`)
             },
             {
                 path:'/add/service',
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
                 path:'review/edit/:id',
                 element:<EditReview></EditReview>,
             },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+            }
 
 
         ],

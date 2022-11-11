@@ -37,16 +37,33 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 		logIn(email,password)
-		.then(result=>{
+		.then(result => {
 			const user = result.user;
-			navigate(from, {replace: true});
-            form.reset();
-			// if(!user){
-			// 	setError('Credentials do not matched')
-			// }
+
+
+			const currentUser = {
+				email: user.email
+			}
+
+			console.log(currentUser);
+
+			// get jwt token
+			fetch('https://photography-server-anita-mahmud.vercel.app/jwt', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify(currentUser)
+			})
+				.then(res => res.json())
+				.then(data => {
+					console.log(data);
+					localStorage.setItem('token', data.token);
+					navigate(from, { replace: true });
+				});
+			
 		})
-		
-		.catch(err=>setError(true));
+		.catch(error => setError(true));
 		
 	}
     return (

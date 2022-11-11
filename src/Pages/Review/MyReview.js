@@ -6,19 +6,28 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 
 const MyReview = () => {
-    const {user} = useContext(AuthContext);
+    const {user,logOut} = useContext(AuthContext);
     const [mine,setMine] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-        .then(res=>res.json())
+        fetch(`https://photography-server-anita-mahmud.vercel.app/reviews?email=${user?.email}`,{
+          headers: {
+            authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+        })
+        .then(res=>{
+          if (res.status === 401 || res.status === 403) {
+            return logOut();
+        }
+        return res.json();
+        })
         .then(data=>setMine(data))
         .catch(er=>console.log(er))
-    },[user?.email])
+    },[user?.email,logOut])
  console.log(mine.length);
 //delete
 const handleDelete=(id)=>{
-   fetch(`http://localhost:5000/reviews/${id}`,{
+   fetch(`https://photography-server-anita-mahmud.vercel.app/reviews/${id}`,{
     method: 'DELETE',
    })
    .then(res => res.json())
@@ -48,10 +57,10 @@ const handleEdit = id =>{
                 <h2 className='text-7xl font-great font-semibold text-center'><span className='capitalize font-bold'>{user.displayName}</span>'s Review</h2>
             </div>
 
-           {mine.length>0? <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-4">
+           {mine.length>0? <div className="max-w-screen-lg mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
             {
                 mine.map(my=> <Card>
-                        <div className="flex flex-col items-center pb-10">
+                        <div className="flex flex-col items-center">
                       {/* <img
                         className="mb-3 h-24 w-24"
                         src={my.image}
